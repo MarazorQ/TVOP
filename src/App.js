@@ -3,7 +3,12 @@ import Header from "./components/header"
 import Body from "./components/body"
 
 function App() {
-  const [state,setState] = useState({})
+  const [state,setState] = useState({
+    StateValue: {input1: "",
+    input2: "",
+    input3: ""},
+    propsValue: ''
+  })
   console.log(state)
   return (
     <div className="App">

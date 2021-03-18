@@ -8,27 +8,33 @@ const Input = (props) =>{
     })
     let handleButton = (e) =>{
         e.preventDefault();
-        props.setState(state)
+        let propsValue = state.input1 + state.input2 + state.input3
+        props.setState({...props.state,
+            StateValue: {input1: state.input1,
+            input2: state.input2,
+            input3: state.input3},
+            propsValue: propsValue
+        })
         console.log("pic-pic")
     }
     let handleChange = (e) =>{
         let text = e.target.value
         setState({...state,
             input1: text
-        })
+         })
         console.log(text)
     }
     let handleChange1 = (e) =>{
         let text = e.target.value
         setState({...state,
             input2: text
-        })
+         })
         console.log(text)
     }
     let handleChange2 = (e) =>{
         let text = e.target.value
         setState({...state,
-            input3: text
+           input3: text
         })
         console.log(text)
     }
