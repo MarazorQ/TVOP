@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {typeOfTriangle} from './../tests/triangleFunctionTests'
 
 const Input = (props) =>{
     const [state,setState] = useState({
@@ -15,7 +16,7 @@ const Input = (props) =>{
     }
     let handleButton = (e) =>{
         e.preventDefault();
-        let propsValue = state.input1 + state.input2 + state.input3
+        let propsValue = typeOfTriangle(+state.input1, +state.input2, +state.input3)
         props.setState({...props.state,
             StateValue: {input1: state.input1,
             input2: state.input2,

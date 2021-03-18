@@ -1,5 +1,5 @@
 const equilateral = (a, b, c) =>{
-    const result
+    let result = ""
     if (a === b && a === c && b === c ){
         result = true
     }else{
@@ -7,8 +7,8 @@ const equilateral = (a, b, c) =>{
     }
     return result
 }
-const noTriangle = (a, b, c) =>{
-    const result
+const noTriangle = (a = 1, b = 1, c = 1) =>{
+    let result = ""
     if ((a + b > c) && (b + c > a) && (a + c > b)){
         result = true
     }else{
@@ -17,8 +17,8 @@ const noTriangle = (a, b, c) =>{
     return result
 }
 const versatile = (a, b, c) =>{
-    const result
-    if (a != b && a != c && b != c){
+    let result = ""
+    if (a !== b && a !== c && b !== c){
         result = true
     }else{
         result = false
