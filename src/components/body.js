@@ -1,11 +1,11 @@
 import Input from "./input"
 import Output from "./output"
 
-const Body = () =>{
+const Body = (props) =>{
     return(
         <div className="App-contener">
-            <Input/>
-            <Output/>
+            <Input setState={props.setState}/>
+            <Output state={props.state}/>
       </div>
     )
 }
