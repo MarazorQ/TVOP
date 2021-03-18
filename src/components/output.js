@@ -3,18 +3,13 @@ const Output = (props) =>{
     let handleButton = (e) =>{
         e.preventDefault()
         props.setState({...props.state,
-            StateValue: {state:{
-                input1: "",
-                input2: "",
-                input3: ""
-            }},
             propsValue: ""
         })
     }
     return(
         <div className="App-contener_results">
             <div className="item">
-                <input type="text" value={props.state.propsValue}></input>
+                <input type="text" value={props.state.propsValue} readOnly></input>
             </div>
             <hr/>
             <div className="item">

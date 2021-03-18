@@ -6,6 +6,13 @@ const Input = (props) =>{
         input2: "",
         input3: ""
     })
+    let reset = () =>{
+        setState({...state,
+        input1: "",
+        input2: "",
+        input3: ""
+        })
+    }
     let handleButton = (e) =>{
         e.preventDefault();
         let propsValue = state.input1 + state.input2 + state.input3
@@ -15,6 +22,7 @@ const Input = (props) =>{
             input3: state.input3},
             propsValue: propsValue
         })
+        reset()
         console.log("pic-pic")
     }
     let handleChange = (e) =>{
