@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-const Input = () =>{
+const Input = (props) =>{
     const [state,setState] = useState({
         input1: "",
         input2: "",
@@ -8,6 +8,7 @@ const Input = () =>{
     })
     let handleButton = (e) =>{
         e.preventDefault();
+        props.setState(state)
         console.log("pic-pic")
     }
     let handleChange = (e) =>{
