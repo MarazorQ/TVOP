@@ -25,16 +25,27 @@ const versatile = (a, b, c) =>{
     }
     return result
 }
+const isosceles = (a, b, c) =>{
+    let result = ""
+    if (a == b || b == c || a == c){
+        result = true
+    }else{
+        result = false
+    }
+    return result
+}
 export const typeOfTriangle = (a, b, c) =>{
     let res = { 
         equilateral: "",
         noTriangle: "",
-        versatile: ""
+        versatile: "",
+        isosceles: ""
     }
     let triangleType = ''
     res.equilateral = equilateral(a, b, c)
     res.noTriangle = noTriangle(a, b, c)
     res.versatile = versatile(a, b, c)
+    res.isosceles = isosceles(a, b, c)
     
     if (res.equilateral){
         triangleType = "Равносторонний"
@@ -42,6 +53,8 @@ export const typeOfTriangle = (a, b, c) =>{
         triangleType = "Фигура не является треугольником"
     }else if (res.versatile){
         triangleType = "Разносторонний"
+    }else if (res.isosceles){
+        triangleType = "Равнобедренный"
     }
     
     return triangleType
