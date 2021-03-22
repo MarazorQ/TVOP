@@ -2,45 +2,70 @@ import {useState} from 'react'
 import {typeOfTriangle} from './../tests/triangleFunctionTests'
 
 const Input = (props) =>{
+    // const [state,setState] = useState({
+    //     input1: "",
+    //     input2: "",
+    //     input3: "",
+    //     disabled: false,
+    //     error: ""
+    // })
+
     const [state,setState] = useState({
-        input1: "",
-        input2: "",
-        input3: "",
+        input1: {
+            errorInput1: false,
+            inputValue1: ""
+        },
+        input2: {
+            errorInput2: false,
+            inputValue2: ""
+        },
+        input3: {
+            errorInput3: false,
+            inputValue3: ""
+        },
         disabled: false,
         error: ""
     })
+
     let reset = () =>{
         setState({...state,
-        input1: "",
-        input2: "",
-        input3: "",
+        input1:{
+            errorInput1: false,
+            inputValue1: ""
+        },
+        input2: {
+            errorInput2: false,
+            inputValue2: ""
+        },
+        input3: {
+            errorInput3: false,
+            inputValue3: ""
+        },
         disabled: false,
         error: ""
         })
     }
     let handleButton = (e) =>{
         // e.preventDefault();
-        if (state.input1 === "" || state.input2 === "" || state.input3 === ""){
-            // state.disabled = true
-            // state.error = "Вы заполниле не все поля!"
+        if (state.input1.inputValue1 === "" || state.input2.inputValue2 === "" || state.input3.inputValue3 === ""){
             setState({...state,
                 disabled: true,
-                error: "Вы заполниле не все поля!"
+                error: "Заполните поле!"
             })
-            console.log("pic-pic")
         }else{
-            let propsValue = typeOfTriangle(+state.input1, +state.input2, +state.input3)
-        props.setState({...props.state,
-            propsValue: propsValue
-        })
+            let propsValue = typeOfTriangle(+state.input1.inputValue1, +state.input2.inputValue2, +state.input3.inputValue3)
+            props.setState({...props.state,
+                propsValue: propsValue
+            })
         reset()
-        console.log("pic-pic")
         }
     }
     let handleChange = (e) =>{
         let text = e.target.value
         setState({...state,
-            input1: text,
+            input1: {
+                inputValue1: text
+            },
             disabled: false,
             error: ""
          })
@@ -51,7 +76,9 @@ const Input = (props) =>{
     let handleChange1 = (e) =>{
         let text = e.target.value
         setState({...state,
-            input2: text,
+            input2: {
+                inputValue2: text
+            },
             disabled: false,
             error: ""
          })
@@ -62,7 +89,9 @@ const Input = (props) =>{
     let handleChange2 = (e) =>{
         let text = e.target.value
         setState({...state,
-           input3: text,
+           input3: {
+               inputValue3: text
+           },
            disabled: false,
            error: ""
         })
@@ -73,15 +102,18 @@ const Input = (props) =>{
         <div className="App-contener__item">
             <div className="item">
                 <label>Длина стороны 1</label>
-                <input type="number" value={state.input1} onChange={handleChange} placeholder="input..."></input>
+                <input type="number" value={state.input1.inputValue1} onChange={handleChange} placeholder="input..."></input>
+                {state.error}
             </div>
             <div className="item">
                 <label>Длина стороны 2</label>
-                <input type="number" value={state.input2} onChange={handleChange1} placeholder="inputs..."></input>
+                <input type="number" value={state.input2.inputValue2} onChange={handleChange1} placeholder="inputs..."></input>
+                {state.error}
             </div>
             <div className="item">
                 <label>Длина стороны 3</label>
-                <input type="number" value={state.input3} onChange={handleChange2} placeholder="inputs..."></input>
+                <input type="number" value={state.input3.inputValue3} onChange={handleChange2} placeholder="inputs..."></input>
+                {state.error}
             </div>
             <div>
                 {state.error}
