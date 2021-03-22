@@ -12,9 +12,6 @@ const Output = (props) =>{
                 <input type="text" value={props.state.propsValue} readOnly></input>
             </div>
             <hr/>
-            <div className="item">
-                <button onClick={handleButton}>Reset</button>
-            </div>
         </div>
     )
 }

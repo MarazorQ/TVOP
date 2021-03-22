@@ -6,29 +6,43 @@ const Input = (props) =>{
         input1: "",
         input2: "",
         input3: "",
-        disabled: false
+        disabled: false,
+        error: ""
     })
     let reset = () =>{
         setState({...state,
         input1: "",
         input2: "",
         input3: "",
-        disabled: false
+        disabled: false,
+        error: ""
         })
     }
     let handleButton = (e) =>{
-        e.preventDefault();
-        let propsValue = typeOfTriangle(+state.input1, +state.input2, +state.input3)
+        // e.preventDefault();
+        if (state.input1 === "" || state.input2 === "" || state.input3 === ""){
+            // state.disabled = true
+            // state.error = "Вы заполниле не все поля!"
+            setState({...state,
+                disabled: true,
+                error: "Вы заполниле не все поля!"
+            })
+            console.log("pic-pic")
+        }else{
+            let propsValue = typeOfTriangle(+state.input1, +state.input2, +state.input3)
         props.setState({...props.state,
             propsValue: propsValue
         })
         reset()
         console.log("pic-pic")
+        }
     }
     let handleChange = (e) =>{
         let text = e.target.value
         setState({...state,
-            input1: text
+            input1: text,
+            disabled: false,
+            error: ""
          })
          props.setState({...props.state,
             propsValue: ''
@@ -37,7 +51,9 @@ const Input = (props) =>{
     let handleChange1 = (e) =>{
         let text = e.target.value
         setState({...state,
-            input2: text
+            input2: text,
+            disabled: false,
+            error: ""
          })
          props.setState({...props.state,
             propsValue: ''
@@ -46,19 +62,13 @@ const Input = (props) =>{
     let handleChange2 = (e) =>{
         let text = e.target.value
         setState({...state,
-           input3: text
+           input3: text,
+           disabled: false,
+           error: ""
         })
         props.setState({...props.state,
             propsValue: ''})
     }
-    // // setInterval(() =>{
-    // //     if (state.input1 !== "" && state.input2 !== "" && state.input3 !== ""){
-    // //         setState({...state,
-    // //             disabled: false
-    // //         })
-    // //     }
-       
-    // },100)
     return(
         <div className="App-contener__item">
             <div className="item">
