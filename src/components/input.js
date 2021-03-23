@@ -18,6 +18,15 @@ const Input = (props) =>{
         disabled: false
     })
 
+    const InputParts = (props) =>{
+        return(
+            <div className="form-group mx-sm-3 mb-2">
+                <label className="lead">{props.title}</label>
+                <input type="number" value={props.value} onChange={props.handleChange} placeholder="вводите..." className="form-control form-control-lg"></input>
+            </div>
+        )
+    }
+
     // let obj = {
     //     input1: {
     //         errorValue: "",
@@ -69,9 +78,6 @@ const Input = (props) =>{
                 },
                 disabled: true
                 })
-            // debugger
-            //     let a = validate(state)
-            //     setState({...state,a})
         }else{
             let propsValue = typeOfTriangle(+state.input1.inputValue, +state.input2.inputValue, +state.input3.inputValue)
             props.setState({...props.state,
@@ -120,26 +126,14 @@ const Input = (props) =>{
     }
     return(
         <div className="App-contener__item">
-            <div className="form-group mx-sm-3 mb-2">
-                <label className="lead">Длина стороны 1</label>
-                <input type="number" value={state.input1.inputValue} onChange={handleChange} placeholder="вводите..." className="form-control form-control-lg"></input>
-                {/* {state.input1.errorValue} */}
-            </div>
-            <div className="form-group mx-sm-3 mb-2">
-                <label className="lead">Длина стороны 2</label>
-                <input type="number" max="100" min="1" value={state.input2.inputValue} onChange={handleChange1} placeholder="вводите..." className="form-control form-control-lg"></input>
-                {/* {state.input2.errorValue} */}
-            </div>
-            <div className="form-group mx-sm-3 mb-2">
-                <label className="lead">Длина стороны 3</label>
-                <input type="number" value={state.input3.inputValue} onChange={handleChange2} placeholder="вводите..." className="form-control form-control-lg"></input>
-                {/* {state.input3.errorValue} */}
-            </div>
+            <InputParts value={state.input1.inputValue} handleChange={handleChange} title="Длинна стороны 1"/>
+            <InputParts value={state.input2.inputValue} handleChange={handleChange1} title="Длинна стороны 2"/>
+            <InputParts value={state.input3.inputValue} handleChange={handleChange2} title="Длинна стороны 3"/>
             <div className="form-group mx-sm-3 mb-2">
                 <p className="text-danger lead">{state.input1.errorValue}</p>
             </div>
             <hr/>
-                <div className="form-group mx-sm-3 mb-2">
+            <div className="form-group mx-sm-3 mb-2">
                 <button id="button" onClick={handleButton} disabled={state.disabled} className="btn btn-primary btn-lg btn-block" >Вычислить</button>
             </div>
             <hr/>
