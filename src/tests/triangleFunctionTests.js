@@ -10,14 +10,12 @@ const equilateral = (a, b, c) =>{
     }
     return result
 }
-const noTriangle = (a = 1, b = 1, c = 1) =>{
-    let result = ""
-    if ((a + b > c) && (b + c > a) && (a + c > b)){
-        result = true
+const noTriangle = (a, b, c) =>{
+    if ((a < b + c) && (b < a + c) && (c < a + b)){
+        return true
     }else{
-        result = false
+        return false
     }
-    return result
 }
 const versatile = (a, b, c) =>{
     let result = ""
@@ -38,6 +36,8 @@ const isosceles = (a, b, c) =>{
     return result
 }
 export const typeOfTriangle = (a, b, c) =>{
+    let result = noTriangle(a,b,c)
+    console.log(result)
     if (a === 0 || b === 0 || c === 0){
         return "Фигура не является треугольлником"
     }else{
