@@ -36,8 +36,6 @@ const isosceles = (a, b, c) =>{
     return result
 }
 export const typeOfTriangle = (a, b, c) =>{
-    let result = noTriangle(a,b,c)
-    console.log(result)
     if (a === 0 || b === 0 || c === 0){
         return "Фигура не является треугольлником"
     }else{

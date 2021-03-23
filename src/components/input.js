@@ -120,26 +120,26 @@ const Input = (props) =>{
     }
     return(
         <div className="App-contener__item">
-            <div className="item">
+            <div className="form-group mx-sm-3 mb-2">
                 <label className="lead">Длина стороны 1</label>
-                <input type="number" value={state.input1.inputValue} onChange={handleChange} placeholder="input..." className="form-control form-control-lg"></input>
+                <input type="number" value={state.input1.inputValue} onChange={handleChange} placeholder="вводите..." className="form-control form-control-lg"></input>
                 {/* {state.input1.errorValue} */}
             </div>
-            <div className="item">
+            <div className="form-group mx-sm-3 mb-2">
                 <label className="lead">Длина стороны 2</label>
-                <input type="number" value={state.input2.inputValue} onChange={handleChange1} placeholder="inputs..." className="form-control form-control-lg"></input>
+                <input type="number" max="100" min="1" value={state.input2.inputValue} onChange={handleChange1} placeholder="вводите..." className="form-control form-control-lg"></input>
                 {/* {state.input2.errorValue} */}
             </div>
-            <div className="item">
+            <div className="form-group mx-sm-3 mb-2">
                 <label className="lead">Длина стороны 3</label>
-                <input type="number" value={state.input3.inputValue} onChange={handleChange2} placeholder="inputs..." className="form-control form-control-lg"></input>
+                <input type="number" value={state.input3.inputValue} onChange={handleChange2} placeholder="вводите..." className="form-control form-control-lg"></input>
                 {/* {state.input3.errorValue} */}
             </div>
-            <div>
+            <div className="form-group mx-sm-3 mb-2">
                 <p className="text-danger lead">{state.input1.errorValue}</p>
             </div>
             <hr/>
-                <div className="item">
+                <div className="form-group mx-sm-3 mb-2">
                 <button id="button" onClick={handleButton} disabled={state.disabled} className="btn btn-primary btn-lg btn-block" >Вычислить</button>
             </div>
             <hr/>
