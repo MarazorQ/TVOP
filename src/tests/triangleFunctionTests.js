@@ -64,7 +64,8 @@ export const typeOfTriangle = (a, b, c) =>{
     }
     
 }
-module.export = equilateral
-module.export = noTriangle
-module.export = versatile
-module.export = isosceles
+// module.exports = equilateral
+// module.exports = noTriangle
+// module.exports = versatile
+// module.exports = isosceles
+// module.exports = typeOfTriangle
