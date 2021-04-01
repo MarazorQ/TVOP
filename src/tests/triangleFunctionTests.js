@@ -1,10 +1,7 @@
-const equilateral = (a, b, c) =>{
+export const equilateral = (a, b, c) =>{
     let result = ""
     if (a === b && a === c){
         result = true
-        if (a === 0 || b === 0 || c === 0){
-            result = false
-        }
     }else{
         result = false
     }
@@ -12,14 +9,14 @@ const equilateral = (a, b, c) =>{
 }
 const noTriangle = (a, b, c) =>{
     if ((a < b + c) && (b < a + c) && (c < a + b)){
-        return true
-    }else{
         return false
+    }else{
+        return true
     }
 }
 const versatile = (a, b, c) =>{
     let result = ""
-    if (a !== b && a !== c && b !== c){
+    if (a !== b && a !== c && b !== c && noTriangle(a,b,c)){
         result = true
     }else{
         result = false
@@ -64,7 +61,7 @@ export const typeOfTriangle = (a, b, c) =>{
     }
     
 }
-// module.exports = equilateral
+module.export = equilateral
 // module.exports = noTriangle
 // module.exports = versatile
 // module.exports = isosceles

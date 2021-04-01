@@ -95,7 +95,8 @@ const Input = (props) =>{
             props.setState({...props.state,
                 propsValue: propsValue
             })
-        reset()
+            message.success("Данные обработаны")
+            reset()
         }
     }
     let handleChange = (e) =>{
