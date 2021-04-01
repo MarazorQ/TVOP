@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {typeOfTriangle} from './../tests/triangleFunctionTests'
+import {message} from "antd"
 
 const Input = (props) =>{
     const [state,setState] = useState({
@@ -82,12 +83,13 @@ const Input = (props) =>{
     // }
     let handleButton = (e) =>{
         if (state.input1.inputValue === "" || state.input2.inputValue === "" || state.input3.inputValue === ""){
-            setState({...state,
-                input1:{
-                    errorValue: "Заполните форму!"
-                },
-                disabled: true
-                })
+            // setState({...state,
+            //     input1:{
+            //         errorValue: "Заполните форму!"
+            //     },
+            //     disabled: true
+            //     })
+            message.error("Заполните форму!")
         }else{
             let propsValue = typeOfTriangle(+state.input1.inputValue, +state.input2.inputValue, +state.input3.inputValue)
             props.setState({...props.state,

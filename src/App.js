@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Header from "./components/header"
 import Body from "./components/body"
+import "antd/dist/antd.css"
 
 function App() {
   const [state,setState] = useState({
