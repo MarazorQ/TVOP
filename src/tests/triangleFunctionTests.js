@@ -1,4 +1,4 @@
-export const equilateral = (a, b, c) =>{
+const equilateral = (a, b, c) =>{
     let result = ""
     if (a === b && a === c){
         result = true
@@ -15,8 +15,9 @@ const noTriangle = (a, b, c) =>{
     }
 }
 const versatile = (a, b, c) =>{
+    debugger
     let result = ""
-    if (a !== b && a !== c && b !== c && noTriangle(a,b,c)){
+    if (a !== b && a !== c && b !== c && !noTriangle(a,b,c)){
         result = true
     }else{
         result = false
@@ -32,7 +33,8 @@ const isosceles = (a, b, c) =>{
     }
     return result
 }
-export const typeOfTriangle = (a, b, c) =>{
+ export const typeOfTriangle = (a, b, c) =>{
+     debugger
     if (a === 0 || b === 0 || c === 0){
         return "Фигура не является треугольлником"
     }else{
@@ -61,8 +63,7 @@ export const typeOfTriangle = (a, b, c) =>{
     }
     
 }
-module.export = equilateral
+// module.exports = equilateral
 // module.exports = noTriangle
 // module.exports = versatile
 // module.exports = isosceles
-// module.exports = typeOfTriangle

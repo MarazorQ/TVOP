@@ -141,15 +141,15 @@ const Input = (props) =>{
         <div className="App-contener__item">
             <div className="form-group mx-sm-3 mb-2">
                 <label className="lead">Длина стороны 1</label>
-                <input type="text" value={state.input1.inputValue} onChange={handleChange} placeholder="вводите..." className="form-control form-control-lg" pattern="[0-9]*"></input>
+                <input maxLength="9" type="text" value={state.input1.inputValue} onChange={handleChange} placeholder="вводите..." className="form-control form-control-lg" pattern="[0-9]*"></input>
             </div>
             <div className="form-group mx-sm-3 mb-2">
                 <label className="lead">Длина стороны 2</label>
-                <input type="text" value={state.input2.inputValue} onChange={handleChange1} placeholder="вводите..." className="form-control form-control-lg" pattern="[0-9]*"></input>
+                <input maxLength="9" type="text" value={state.input2.inputValue} onChange={handleChange1} placeholder="вводите..." className="form-control form-control-lg" pattern="[0-9]*"></input>
             </div>
             <div className="form-group mx-sm-3 mb-2">
                 <label className="lead">Длина стороны 3</label>
-                <input type="text" value={state.input3.inputValue} onChange={handleChange2} placeholder="вводите..." className="form-control form-control-lg" pattern="[0-9]*"></input>
+                <input maxLength="9" type="text" value={state.input3.inputValue} onChange={handleChange2} placeholder="вводите..." className="form-control form-control-lg" pattern="[0-9]*"></input>
             </div>
             <div className="form-group mx-sm-3 mb-2">
                 <p className="text-danger lead">{state.input1.errorValue}</p>
