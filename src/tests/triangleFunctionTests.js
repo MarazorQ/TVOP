@@ -1,42 +1,34 @@
-const equilateral = (a, b, c) =>{
-    let result = ""
+const isEquilateral = (a, b, c) =>{
+    let result = false
     if (a === b && a === c){
         result = true
-    }else{
-        result = false
     }
     return result
 }
-const noTriangle = (a, b, c) =>{
+const isTriangle = (a, b, c) =>{
+    let result = true
     if ((a < b + c) && (b < a + c) && (c < a + b)){
-        return false
-    }else{
-        return true
-    }
-}
-const versatile = (a, b, c) =>{
-    debugger
-    let result = ""
-    if (a !== b && a !== c && b !== c && !noTriangle(a,b,c)){
-        result = true
-    }else{
         result = false
     }
     return result
 }
-const isosceles = (a, b, c) =>{
-    let result = ""
+const isVersatile = (a, b, c) =>{
+    let result = false
+    if (a !== b && a !== c && b !== c && !isTriangle(a,b,c)){
+        result = true
+    }
+    return result
+}
+const isIsosceles = (a, b, c) =>{
+    let result = false
     if (a === b || b === c || a === c){
         result = true
-    }else{
-        result = false
     }
     return result
 }
  export const typeOfTriangle = (a, b, c) =>{
-     debugger
     if (a === 0 || b === 0 || c === 0){
-        return "Фигура не является треугольлником"
+        return "Фигура не является треугольлником, диапазон допустимых значений для сторон [1-999999999]"
     }else{
         let res = { 
             equilateral: "",
@@ -45,17 +37,17 @@ const isosceles = (a, b, c) =>{
             isosceles: ""
         }
         let triangleType = ''
-        res.equilateral = equilateral(a, b, c)
-        res.noTriangle = noTriangle(a, b, c)
-        res.versatile = versatile(a, b, c)
-        res.isosceles = isosceles(a, b, c)
+        res.equilateral = isEquilateral(a, b, c)
+        res.noTriangle = isTriangle(a, b, c)
+        res.versatile = isVersatile(a, b, c)
+        res.isosceles = isIsosceles(a, b, c)
         
         if (res.equilateral){
             triangleType = "Равносторонний"
         }else if (res.noTriangle){
-            triangleType = "Фигура не является треугольником"
+            triangleType = "Фигура не является треугольником. Сумма любых двух сторон должна быть больше третьей"
         }else if (res.versatile){
-            triangleType = "Разносторонний"
+            triangleType = "Неравносторонний"
         }else if (res.isosceles){
             triangleType = "Равнобедренный"
         }
@@ -63,7 +55,7 @@ const isosceles = (a, b, c) =>{
     }
     
 }
-// module.exports = equilateral
-// module.exports = noTriangle
-// module.exports = versatile
-// module.exports = isosceles
+// module.exports = isEquilateral
+// module.exports = isTriangle
+// module.exports = isVersatile
+// module.exports = isIsosceles
